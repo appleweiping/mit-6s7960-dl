@@ -44,7 +44,11 @@ def _load_split(split):
 
 
 def load_flat(cache=True):
-    """Flattened 3072-dim vectors (for the HW1 scratch MLP)."""
+    """Flattened 3072-dim vectors (for the HW1 scratch MLP).
+
+    Reuses the same npz cache as ``load_images`` so the (slow) per-PNG read only
+    happens once across all homeworks.
+    """
     x_tr, y_tr, x_te, y_te = load_images(cache=cache)
     return (x_tr.reshape(len(x_tr), -1), y_tr,
             x_te.reshape(len(x_te), -1), y_te)
