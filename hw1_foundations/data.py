@@ -25,7 +25,14 @@ def _to_numpy(dataset) -> tuple[np.ndarray, np.ndarray]:
 
 
 def load_cifar10_flat(root: str | None = None):
-    """Return (Xtr, ytr, Xte, yte) with images flattened to 3072-dim vectors."""
+    """Return (Xtr, ytr, Xte, yte) with images flattened to 3072-dim vectors.
+
+    Prefers the fast.ai image-folder distribution (reliable CDN) if present,
+    else falls back to the torchvision mirror download.
+    """
+    from common import cifar_imagefolder
+    if cifar_imagefolder.available():
+        return cifar_imagefolder.load_flat()
     root = root or data_dir("cifar10")
     train = torchvision.datasets.CIFAR10(root=root, train=True, download=True)
     test = torchvision.datasets.CIFAR10(root=root, train=False, download=True)

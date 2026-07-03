@@ -19,6 +19,9 @@ TINY_SHAKESPEARE_URL = (
 
 
 def load_cifar10_images(root: str | None = None):
+    from common import cifar_imagefolder
+    if cifar_imagefolder.available():
+        return cifar_imagefolder.load_images()
     root = root or data_dir("cifar10")
     tr = torchvision.datasets.CIFAR10(root=root, train=True, download=True)
     te = torchvision.datasets.CIFAR10(root=root, train=False, download=True)

@@ -110,45 +110,74 @@ def main():
 
     lrs = [10 ** e for e in np.linspace(-3, 0.5, 12)]
 
+    def nan_to_inf(d):
+        return {k: (v if np.isfinite(v) else float("inf")) for k, v in d.items()}
+
     results = {}
     for name, spectral in [("spectral", True), ("naive", False)]:
-        small = sweep(args.small_width, args.depth, lrs, args.steps, spectral)
-        large = sweep(args.large_width, args.depth, lrs, args.steps, spectral)
+        small = nan_to_inf(sweep(args.small_width, args.depth, lrs, args.steps, spectral))
+        large = nan_to_inf(sweep(args.large_width, args.depth, lrs, args.steps, spectral))
         best_small_lr = min(small, key=small.get)
         best_large_lr = min(large, key=large.get)
+        # Transfer quality: take the LR that is best at SMALL width and ask how
+        # much worse it is (relative to that width's own best) when applied at
+        # LARGE width. A well-transferring rule keeps this ratio near 1 and never
+        # diverges; a non-transferring rule blows up (inf).
+        large_at_small_best = large[best_small_lr]
+        large_best = large[best_large_lr]
+        transfer_ratio = (large_at_small_best / large_best
+                          if np.isfinite(large_at_small_best) else float("inf"))
         results[name] = {
             "small": small, "large": large,
             "best_small_lr": best_small_lr, "best_large_lr": best_large_lr,
             "transfer_gap_log10": abs(np.log10(best_small_lr) - np.log10(best_large_lr)),
+            "large_loss_at_small_best_lr": large_at_small_best,
+            "large_best_loss": large_best,
+            "transfer_ratio": transfer_ratio,
         }
-        print(f"[{name}] best LR  small(w={args.small_width})={best_small_lr:.3g}  "
-              f"large(w={args.large_width})={best_large_lr:.3g}  "
-              f"gap(log10)={results[name]['transfer_gap_log10']:.2f}")
+        print(f"[{name}] best-small LR={best_small_lr:.3g} -> large-width loss="
+              f"{large_at_small_best:.4g} (large-best={large_best:.4g}, "
+              f"ratio={transfer_ratio:.2f})")
 
     # Figure: loss vs LR for both widths, spectral vs naive.
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
     fig, ax = plt.subplots(1, 2, figsize=(11, 4), sharey=True)
+    cap = 10.0  # plot ceiling so divergences (inf) are visible, not dropped
+
+    def clip(vals):
+        return [min(v, cap) for v in vals]
+
     for j, name in enumerate(["spectral", "naive"]):
         s = results[name]["small"]; l = results[name]["large"]
-        ax[j].plot(list(s.keys()), list(s.values()), "o-", label=f"width {args.small_width}")
-        ax[j].plot(list(l.keys()), list(l.values()), "s-", label=f"width {args.large_width}")
+        ax[j].plot(list(s.keys()), clip(list(s.values())), "o-",
+                   label=f"width {args.small_width}")
+        ax[j].plot(list(l.keys()), clip(list(l.values())), "s-",
+                   label=f"width {args.large_width}")
+        ax[j].axhline(cap, ls=":", c="red", alpha=0.5, label="diverged (capped)")
         ax[j].set_xscale("log"); ax[j].set_yscale("log")
         ax[j].set_title(f"{name} update"); ax[j].set_xlabel("learning rate")
-        ax[j].legend(); ax[j].grid(alpha=0.3)
+        ax[j].legend(fontsize=8); ax[j].grid(alpha=0.3)
     ax[0].set_ylabel("final MSE")
     fig.suptitle("HW2: LR transfer across width (spectral scaling transfers, naive does not)")
     fig.tight_layout()
     figpath = os.path.join(args.outdir, "lr_transfer.png")
     fig.savefig(figpath, dpi=110)
 
-    # JSON-friendly
+    # JSON-friendly (inf -> string so it round-trips)
+    def jval(v):
+        return v if np.isfinite(v) else "inf"
+
     def keyfmt(d):
-        return {f"{k:.4g}": v for k, v in d.items()}
+        return {f"{k:.4g}": jval(v) for k, v in d.items()}
+
     dump = {name: {"small": keyfmt(r["small"]), "large": keyfmt(r["large"]),
                    "best_small_lr": r["best_small_lr"], "best_large_lr": r["best_large_lr"],
-                   "transfer_gap_log10": r["transfer_gap_log10"]}
+                   "transfer_gap_log10": r["transfer_gap_log10"],
+                   "large_loss_at_small_best_lr": jval(r["large_loss_at_small_best_lr"]),
+                   "large_best_loss": jval(r["large_best_loss"]),
+                   "transfer_ratio": jval(r["transfer_ratio"])}
             for name, r in results.items()}
     with open(os.path.join(args.outdir, "lr_transfer.json"), "w") as f:
         json.dump(dump, f, indent=2)
