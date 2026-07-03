@@ -1,0 +1,10 @@
+{
+  "epochs": 30,
+  "lr": 0.05,
+  "batch_size": 128,
+  "final_train_acc_plain": 0.98718,
+  "final_val_acc_plain": 0.5349,
+  "final_train_acc_aug": 0.43774,
+  "final_val_acc_aug": 0.4325,
+  "seconds": 2544.9
+}
