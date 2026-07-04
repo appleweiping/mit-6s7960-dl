@@ -32,7 +32,7 @@ whose measured outputs are saved under [`results/`](results/).
 | **HW2** LR transfer across width | spectral vs naive update | spectral: small-width-best LR still works at 8× width (loss 3× best); **naive diverges (NaN)** — does not transfer |
 | **HW2** MLP vs CNN (CIFAR-100) | inductive bias | MLP d3 **0.134** ≈ MLP d7 **0.127** < CNN **0.181** (20k subset); on full data CNN reached **0.41** vs MLP **0.23** — deeper MLP does not help, CNN does |
 | **HW2** GNN aggregation | mean/max message passing | mean exact; soft-max within `5e-2` of true max |
-| **HW3** Transformer + ViT (CIFAR-10) | attention/multihead/ViT from scratch | ViT **val acc 0.62** (assignment target: >0.50) |
+| **HW3** Transformer + ViT (CIFAR-10) | attention/multihead/ViT from scratch | ViT **val acc 0.640** (assignment target: >0.50) |
 | **HW3** DialogueGPT (tiny-shakespeare) | GPT LM on the from-scratch transformer | next-token loss **6.55 → 4.29**; generates grammatical Shakespeare-style text |
 | **HW4** representation learning | autoencoder vs contrastive, k-NN probe | recolor-aug encoder: shape acc **0.95**, colour acc **0.25 (= chance)** → colour-invariant, as theory predicts |
 | **HW5** VAE (FashionMNIST) | ELBO + reparameterisation | final **−ELBO 240.9** (recon 224.9, KL 16.0); latent traversal figure |
