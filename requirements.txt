@@ -1,0 +1,5 @@
+numpy>=1.26
+torch>=2.1
+torchvision>=0.16
+matplotlib>=3.7
+pytest>=7.0
