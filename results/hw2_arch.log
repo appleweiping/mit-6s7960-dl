@@ -1,0 +1,57 @@
+Training MLP_w128_d3 ...
+    epoch 1/15  val_acc=0.0896
+    epoch 2/15  val_acc=0.1082
+    epoch 3/15  val_acc=0.1182
+    epoch 4/15  val_acc=0.1161
+    epoch 5/15  val_acc=0.1272
+    epoch 6/15  val_acc=0.1308
+    epoch 7/15  val_acc=0.1301
+    epoch 8/15  val_acc=0.1302
+    epoch 9/15  val_acc=0.1331
+    epoch 10/15  val_acc=0.1320
+    epoch 11/15  val_acc=0.1369
+    epoch 12/15  val_acc=0.1362
+    epoch 13/15  val_acc=0.1348
+    epoch 14/15  val_acc=0.1335
+    epoch 15/15  val_acc=0.1344
+  MLP_w128_d3 final val_acc=0.1344
+Training MLP_w128_d7 ...
+    epoch 1/15  val_acc=0.0513
+    epoch 2/15  val_acc=0.0722
+    epoch 3/15  val_acc=0.0819
+    epoch 4/15  val_acc=0.0939
+    epoch 5/15  val_acc=0.0999
+    epoch 6/15  val_acc=0.1047
+    epoch 7/15  val_acc=0.1104
+    epoch 8/15  val_acc=0.1148
+    epoch 9/15  val_acc=0.1190
+    epoch 10/15  val_acc=0.1255
+    epoch 11/15  val_acc=0.1191
+    epoch 12/15  val_acc=0.1193
+    epoch 13/15  val_acc=0.1238
+    epoch 14/15  val_acc=0.1272
+    epoch 15/15  val_acc=0.1266
+  MLP_w128_d7 final val_acc=0.1266
+Training CNN_4conv_3mlp ...
+    epoch 1/15  val_acc=0.0751
+    epoch 2/15  val_acc=0.1131
+    epoch 3/15  val_acc=0.1274
+    epoch 4/15  val_acc=0.1501
+    epoch 5/15  val_acc=0.1629
+    epoch 6/15  val_acc=0.1810
+    epoch 7/15  val_acc=0.1809
+    epoch 8/15  val_acc=0.1868
+    epoch 9/15  val_acc=0.1914
+    epoch 10/15  val_acc=0.1878
+    epoch 11/15  val_acc=0.1891
+    epoch 12/15  val_acc=0.1840
+    epoch 13/15  val_acc=0.1763
+    epoch 14/15  val_acc=0.1813
+    epoch 15/15  val_acc=0.1806
+  CNN_4conv_3mlp final val_acc=0.1806
+{
+  "MLP_w128_d3": 0.1344,
+  "MLP_w128_d7": 0.1266,
+  "CNN_4conv_3mlp": 0.1806
+}
+Saved results/hw2\arch_compare.png

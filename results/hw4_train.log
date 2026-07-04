@@ -1,0 +1,77 @@
+Building shapes dataset ...
+Training autoencoder ...
+  [AE] epoch 1/12 loss=0.0776
+  [AE] epoch 2/12 loss=0.0206
+  [AE] epoch 3/12 loss=0.0206
+  [AE] epoch 4/12 loss=0.0206
+  [AE] epoch 5/12 loss=0.0206
+  [AE] epoch 6/12 loss=0.0206
+  [AE] epoch 7/12 loss=0.0206
+  [AE] epoch 8/12 loss=0.0207
+  [AE] epoch 9/12 loss=0.0206
+  [AE] epoch 10/12 loss=0.0206
+  [AE] epoch 11/12 loss=0.0206
+  [AE] epoch 12/12 loss=0.0207
+  autoencoder: shape_acc=0.669  color_acc=0.412
+Training contrastive encoder (aug=recolor) ...
+  [contrastive/aug_recolor] epoch 1/10 loss=1.2091
+  [contrastive/aug_recolor] epoch 2/10 loss=0.5064
+  [contrastive/aug_recolor] epoch 3/10 loss=0.2799
+  [contrastive/aug_recolor] epoch 4/10 loss=0.1767
+  [contrastive/aug_recolor] epoch 5/10 loss=0.1210
+  [contrastive/aug_recolor] epoch 6/10 loss=0.1005
+  [contrastive/aug_recolor] epoch 7/10 loss=0.0890
+  [contrastive/aug_recolor] epoch 8/10 loss=0.0793
+  [contrastive/aug_recolor] epoch 9/10 loss=0.0726
+  [contrastive/aug_recolor] epoch 10/10 loss=0.0659
+  contrastive_recolor: shape_acc=0.951  color_acc=0.249
+Training contrastive encoder (aug=translate) ...
+  [contrastive/aug_translate] epoch 1/10 loss=3.4650
+  [contrastive/aug_translate] epoch 2/10 loss=2.6048
+  [contrastive/aug_translate] epoch 3/10 loss=2.2983
+  [contrastive/aug_translate] epoch 4/10 loss=2.2083
+  [contrastive/aug_translate] epoch 5/10 loss=2.0789
+  [contrastive/aug_translate] epoch 6/10 loss=1.9709
+  [contrastive/aug_translate] epoch 7/10 loss=1.8850
+  [contrastive/aug_translate] epoch 8/10 loss=1.8715
+  [contrastive/aug_translate] epoch 9/10 loss=1.8256
+  [contrastive/aug_translate] epoch 10/10 loss=1.7495
+  contrastive_translate: shape_acc=1.000  color_acc=1.000
+Training contrastive encoder (aug=jitter) ...
+  [contrastive/aug_jitter] epoch 1/10 loss=1.3211
+  [contrastive/aug_jitter] epoch 2/10 loss=0.4194
+  [contrastive/aug_jitter] epoch 3/10 loss=0.2490
+  [contrastive/aug_jitter] epoch 4/10 loss=0.1599
+  [contrastive/aug_jitter] epoch 5/10 loss=0.1339
+  [contrastive/aug_jitter] epoch 6/10 loss=0.1059
+  [contrastive/aug_jitter] epoch 7/10 loss=0.0942
+  [contrastive/aug_jitter] epoch 8/10 loss=0.0833
+  [contrastive/aug_jitter] epoch 9/10 loss=0.0733
+  [contrastive/aug_jitter] epoch 10/10 loss=0.0695
+  contrastive_jitter: shape_acc=0.805  color_acc=0.949
+{
+  "autoencoder": {
+    "knn_shape_acc": 0.6687,
+    "knn_color_acc": 0.4125
+  },
+  "contrastive_recolor": {
+    "knn_shape_acc": 0.9513,
+    "knn_color_acc": 0.2487
+  },
+  "contrastive_translate": {
+    "knn_shape_acc": 1.0,
+    "knn_color_acc": 1.0
+  },
+  "contrastive_jitter": {
+    "knn_shape_acc": 0.805,
+    "knn_color_acc": 0.9487
+  },
+  "_meta": {
+    "n_train": 3000,
+    "n_val": 800,
+    "d": 16,
+    "chance_shape": 0.3333,
+    "chance_color": 0.25,
+    "seconds": 1530.9
+  }
+}

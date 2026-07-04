@@ -1,0 +1,21 @@
+epoch 1/15  -ELBO=284.62 recon=270.38 KL=14.24
+epoch 2/15  -ELBO=255.85 recon=240.43 KL=15.42
+epoch 3/15  -ELBO=250.27 recon=234.80 KL=15.47
+epoch 4/15  -ELBO=247.48 recon=231.96 KL=15.52
+epoch 5/15  -ELBO=245.79 recon=230.20 KL=15.60
+epoch 6/15  -ELBO=244.68 recon=228.96 KL=15.71
+epoch 7/15  -ELBO=243.87 recon=228.07 KL=15.80
+epoch 8/15  -ELBO=243.26 recon=227.41 KL=15.85
+epoch 9/15  -ELBO=242.73 recon=226.85 KL=15.88
+epoch 10/15  -ELBO=242.32 recon=226.41 KL=15.91
+epoch 11/15  -ELBO=241.99 recon=226.04 KL=15.95
+epoch 12/15  -ELBO=241.68 recon=225.70 KL=15.98
+epoch 13/15  -ELBO=241.42 recon=225.43 KL=15.99
+epoch 14/15  -ELBO=241.13 recon=225.17 KL=15.96
+epoch 15/15  -ELBO=240.92 recon=224.95 KL=15.98
+{
+  "final_neg_elbo": 240.92314616449352,
+  "final_recon": 224.94736300145132,
+  "final_kl": 15.975782984101187,
+  "seconds": 584.5
+}

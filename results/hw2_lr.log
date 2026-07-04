@@ -1,0 +1,3 @@
+[spectral] best-small LR=0.169 -> large-width loss=0.05793 (large-best=0.01937, ratio=2.99)
+[naive] best-small LR=0.351 -> large-width loss=inf (large-best=0.03437, ratio=inf)
+Saved results/hw2\lr_transfer.png

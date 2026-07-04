@@ -1,0 +1,5 @@
+loaded+cached in 213.4 s
+train (50000, 3, 32, 32) test (10000, 3, 32, 32)
+label range 0 9
+per-class train: [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000]
+normalized mean~0: -0.0 std~1: 1.0

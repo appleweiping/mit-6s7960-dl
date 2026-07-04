@@ -1,0 +1,3 @@
+cifar100 loaded+cached in 1416.1 s
+train (50000, 3, 32, 32) test (10000, 3, 32, 32) labels 0 99
+num classes 100 per-class min/max 500 500

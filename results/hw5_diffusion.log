@@ -1,0 +1,12 @@
+epoch 1/8  loss=0.2132
+epoch 2/8  loss=0.0856
+epoch 3/8  loss=0.0695
+epoch 4/8  loss=0.0610
+epoch 5/8  loss=0.0573
+epoch 6/8  loss=0.0545
+epoch 7/8  loss=0.0516
+epoch 8/8  loss=0.0497
+{
+  "final_loss": 0.04966912311600878,
+  "seconds": 1671.4
+}

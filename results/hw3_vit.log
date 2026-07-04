@@ -1,0 +1,11 @@
+epoch 1/6  val_acc=0.4604
+epoch 2/6  val_acc=0.5369
+epoch 3/6  val_acc=0.5907
+epoch 4/6  val_acc=0.6041
+epoch 5/6  val_acc=0.6198
+epoch 6/6  val_acc=0.6399
+{
+  "final_val_acc": 0.6399,
+  "seconds": 2333.5
+}
+Saved results/hw3\vit_attention.png
