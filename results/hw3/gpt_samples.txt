@@ -1,0 +1,11 @@
+[epoch 1] to be or , and the - - - - - - - - - - - - - - - - - - - - - - - - - - -
+[epoch 2] to be or , i am , i am , i am , i am , i am , i am , i am , i am , i am , i am
+[epoch 3] to be or the people , and the people , and the people . i ' s wife , and the people , and the people , and the people , and the
+[epoch 4] to be or , and the people , and the people , and the people , and you are not so , and you , and you , and you , and you
+[epoch 5] to be or to the people . i ' s death , and i ' ll not , and i ' ll not so . i ' ll not , and i '
+[epoch 6] to be or to the people , and the people , i ' s son , - - - - - - - - - - - - - - - - -
+[epoch 7] to be or else to the people , and my lord , i ' s heart , and my lord , and my lord , i ' ll have you . ' d
+[epoch 8] to be or to be revenged on a man ' s heart , and i ' s death . ' s death , but a word , but a man ' s death
+
+[final 50-token generation, prefix 'my lord']
+my lord , i ' ll tell you to your grace . ' s good lord , - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
