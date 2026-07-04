@@ -30,7 +30,7 @@ whose measured outputs are saved under [`results/`](results/).
 | **HW1** ReLU logic gates + backprop | OR/XOR nets, `∂L/∂W` closed form | gates correct on 2000 random points; grad matches finite-diff to `1.3e-10` |
 | **HW2** steepest descent | dual norms, spectral-norm step, power iter | Gaussian spectral norm `≈1.8·d^0.52` (theory `2√d`); orthogonal norm `=1`; power-iter rel-err `7e-3` |
 | **HW2** LR transfer across width | spectral vs naive update | spectral: small-width-best LR still works at 8× width (loss 3× best); **naive diverges (NaN)** — does not transfer |
-| **HW2** MLP vs CNN (CIFAR-100) | inductive bias | MLP d3 ≈ MLP d7 ≈ **0.23**; CNN **0.41** (full data) — deeper MLP does not help, CNN does |
+| **HW2** MLP vs CNN (CIFAR-100) | inductive bias | MLP d3 **0.134** ≈ MLP d7 **0.127** < CNN **0.181** (20k subset); on full data CNN reached **0.41** vs MLP **0.23** — deeper MLP does not help, CNN does |
 | **HW2** GNN aggregation | mean/max message passing | mean exact; soft-max within `5e-2` of true max |
 | **HW3** Transformer + ViT (CIFAR-10) | attention/multihead/ViT from scratch | ViT **val acc 0.62** (assignment target: >0.50) |
 | **HW3** DialogueGPT (tiny-shakespeare) | GPT LM on the from-scratch transformer | next-token loss **6.55 → 4.29**; generates grammatical Shakespeare-style text |
